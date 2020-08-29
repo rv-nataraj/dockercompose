@@ -1,0 +1,21 @@
+version: '3.3'
+services:
+
+  #Nginx Service
+  webserver:
+    image: nginx:latest
+    container_name: webserver_nginx
+    ports:
+     - 8089:80
+    volumes:
+     - type: bind
+       source: /root/dockercompose/nginx/html
+       target: /usr/share/nginx/html
+
+     - type: bind
+       source: /root/dockercompose/nginx/conf.d
+       target: /etc/nginx/conf.d
+
+  # Service
+  #database Service
+    
