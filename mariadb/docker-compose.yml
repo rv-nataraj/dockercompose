@@ -1,0 +1,16 @@
+version: '3.2'
+
+services:
+  #Database Server
+  dbserver:
+    image: mariadb:latest
+    container_name: dbserver_mariadb
+    ports:
+      - 3306:3306
+    volumes:
+      - type: bind
+        source: /root/dockercompose/mariadb/datadir
+        target: /var/lib/mysql
+    environment:
+      TZ: "Asia/Kolkata"
+      MYSQL_ROOT_PASSWORD: root
