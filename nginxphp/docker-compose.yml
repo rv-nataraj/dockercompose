@@ -3,7 +3,7 @@ version: '3.2'
 services:
 
   phpserver:
-    image: php:7.4-fpm-alpine
+    image: php:7.4-fpm
     expose:
       - 9000
     volumes:
