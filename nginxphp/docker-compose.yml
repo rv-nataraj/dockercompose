@@ -1,0 +1,25 @@
+version: '3.2'
+
+services:
+
+  phpserver:
+    image: php:7.4-fpm-alpine
+    expose:
+      - 9000
+    volumes:
+      - type: bind
+        source: /root/dockercompose/nginxphp/htmlfiles
+        target: /htmlfiles
+    
+  webserver:
+    image: nginx:latest
+    ports:
+      - 80:80
+    volumes:
+      - type: bind
+        source: /root/dockercompose/nginxphp/conf.d
+        target: /etc/nginx/conf.d
+      - type: bind
+        source: /root/dockercompose/nginxphp/htmlfiles
+        target: /htmlfiles
+
